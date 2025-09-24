@@ -1,0 +1,24 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+   <title>JavaScript DOM</title>  
+</head>  
+<body>  
+   <h2>The getElementByName method</h2>  
+   Phone:  
+   <input name="devices" type ="checkbox" value="Phone">  
+   Laptop:  
+   <input name="devices" type ="checkbox" value="Laptop">  
+   Sofa:  
+   <input name="furnitures" type ="checkbox" value="Sofa">  
+   <p>Check the checkboxes that have name = "devices"</p>  
+<script>  
+   const collection = document.getElementsByName("devices");  
+   for(let i =0; i <collection.length; i++){  
+      if(collection[i].type =="checkbox"){  
+         collection[i].checked = true;  
+      }  
+   }  
+</script>  
+</body>  
+</html> 

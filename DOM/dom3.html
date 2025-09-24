@@ -1,0 +1,21 @@
+
+<html>
+    <head>
+        <title>getElementByClassName</title>
+    </head>
+    <body>
+        <p class = 'highlight'>This is paragraph 1</p>
+        <p class = 'highlight'>This is paragraph 2</p>
+        <p>This is normal paragraph</p>
+        <button onclick = "highlighPara()">Highlight Paragraph</button>
+        <script>
+            function highlightPara(){
+                var element = document.getElementsByClassName("highlight")
+
+                for(var i=0;i<element.length;i++){
+                    element[i].style.backgroundColor = "yellow"
+                }
+            }
+        </script>
+    </body>
+</html>
