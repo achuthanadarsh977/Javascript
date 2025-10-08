@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSV Weather Data</title>
+  <style>
+    .weather-description {
+      margin: 10px 0;
+      padding: 8px;
+      background: #f0f8ff;
+      border-radius: 8px;
+    }
+    #error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Weather Data from CSV</h1>
+  <div id="error"></div>
+  <div id="city"></div>
+  <div id="weather"></div>
+
+  <button onclick="fetchWeatherFromCSV()">Load CSV Data</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
