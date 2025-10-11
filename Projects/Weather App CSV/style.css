@@ -1,0 +1,22 @@
+
+
+
+body{
+    font-family:Courier , sans-serif;
+    text-align: center;
+    color:white;
+    font-size: 32px;
+    background-color: blue;
+}
+
+
+input{
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.weather_description{
+    color:white;
+    margin-top: 2rem;
+
+}
