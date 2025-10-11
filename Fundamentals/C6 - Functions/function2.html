@@ -1,0 +1,36 @@
+<html>
+    <body bgcolor = "green">
+
+        <h1><b><center>Identity</center></b></h1>
+        <p>If a function invocation is preceded with the new keyword, it is a constructor invocation.It looks like you create a new function, but since JavaScript functions are objects you actually create a new object.</p>
+        <p id="demo"></p>
+
+        <script>
+
+            function names(args1 , args2){
+                this.firstname = args1
+                this.secondname = args2
+            }
+
+
+
+            const n = new names("John","Doe")
+
+
+            document.getElementById("demo").innerHTML = n.firstname+" "+n.secondname
+
+
+
+
+        </script>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+            
