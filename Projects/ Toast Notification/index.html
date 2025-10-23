@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta name = 'viewport' content="width = device-width initial-scale = 1.0">
+        <title>Toast Notification</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+   
+  <body>
+    <div class="button">
+      <button onclick="showToast(successMsg)">Success</button>
+      <button onclick="showToast(errorMsg)">Error</button>
+      <button onclick="showToast(invalidMsg)">Invalid</button>
+    </div>
+
+    <div id="toastbox"></div>
+
+    <script>
+      const toastBox = document.getElementById("toastbox");
+
+      const successMsg =
+        '<i class="fa-solid fa-circle-check"></i> Successfully submitted';
+      const errorMsg =
+        '<i class="fa-solid fa-circle-xmark"></i> Please fix the error';
+      const invalidMsg =
+        '<i class="fa-solid fa-circle-exclamation"></i> Invalid input, check again';
+
+      function showToast(msg) {
+        const toast = document.createElement("div");
+        toast.classList.add("toast");
+        toast.innerHTML = msg;
+        toastBox.appendChild(toast);
+
+        // Add type-based styles
+        if (msg.includes("error") || msg.includes("Error")) {
+          toast.classList.add("error");
+        } else if (msg.includes("Invalid") || msg.includes("invalid")) {
+          toast.classList.add("invalid");
+        }
+
+        // Remove toast after 6 seconds
+        setTimeout(() => {
+          toast.remove();
+        }, 6000);
+      }
+    </script>
+  </body>
+</html>
