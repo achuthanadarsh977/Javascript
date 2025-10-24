@@ -1,0 +1,80 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital@1&display=swap');
+
+/* Reset some defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+    background: #edeaff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Stopwatch container */
+.stopwatch {
+    width: 90%;
+    max-width: 500px;
+    padding: 50px 20px;
+    text-align: center;
+    color: #fff;
+    border-radius: 20px;
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('background.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+/* Stopwatch time display */
+.stopwatch h1#displayTime {
+    font-size: 60px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* Buttons container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Buttons images */
+.buttons img {
+    width: 60px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.buttons img:nth-child(2) {
+    width: 80px; /* Play button larger */
+}
+
+/* Button hover effect */
+.buttons img:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Responsive for smaller screens */
+/* Responsive for smaller screens */
+@media (max-width: 400px) {
+    .stopwatch h1#displayTime {
+        font-size: 40px;
+    }
+    .buttons img {
+        width: 50px;
+    }
+    .buttons img:nth-child(2) {
+        width: 70px;
+    }
+}
