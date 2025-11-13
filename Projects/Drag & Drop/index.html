@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop Using JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="left">
+        <div class="list" draggable="true">
+          <img src="images/drag_drop_icon.png" /> List Item 1
+        </div>
+        <div class="list" draggable="true">
+          <img src="images/drag_drop_icon.png" /> List Item 2
+        </div>
+        <div class="list" draggable="true">
+          <img src="images/drag_drop_icon.png" /> List Item 3
+        </div>
+        <div class="list" draggable="true">
+          <img src="images/drag_drop_icon.png" /> List Item 4
+        </div>
+      </div>
+      <div id="right"></div>
+    </div>
+
+    <script>
+      // ✅ Correct getElementById usage
+      const lists = document.getElementsByClassName("list");
+      const rightBox = document.getElementById("right");
+      const leftBox = document.getElementById("left");
+
+      let selected = null; // will hold the currently dragged item
+
+      // Loop through each draggable list item
+      for (let list of lists) {
+        list.addEventListener("dragstart", (e) => {
+          selected = e.target;
+        });
+      }
+
+      // ✅ Allow dropping on both boxes
+      rightBox.addEventListener("dragover", (e) => e.preventDefault());
+      rightBox.addEventListener("drop", (e) => {
+        if (selected) {
+          rightBox.appendChild(selected);
+          selected = null;
+        }
+      });
+
+      leftBox.addEventListener("dragover", (e) => e.preventDefault());
+      leftBox.addEventListener("drop", (e) => {
+        if (selected) {
+          leftBox.appendChild(selected);
+          selected = null;
+        }
+      });
+    </script>
+  </body>
+</html>
