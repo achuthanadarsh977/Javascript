@@ -1,31 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-
+/* BASIC RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(#e9e7ff, #d4d3ff);
-    height: 100vh;
+    background: #f0f2f5;
+    font-family: Arial, sans-serif;
 }
 
-/* CHATBOT BOX */
+/* CHAT POPUP */
 .chatbot-popup {
-    width: 360px;
-    background: white;
+    width: 420px;
+    height: 600px;
+    background: #fff;
     border-radius: 16px;
-    padding: 18px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 /* HEADER */
 .chat-header {
+    background: #4b6bfb;
+    color: white;
+    padding: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,83 +39,148 @@ body {
     gap: 10px;
 }
 
-.header-info svg {
-    width: 45px;
-}
-
-.logo-txt {
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.chat-header button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 30px;
+.header-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
 }
 
 /* CHAT BODY */
 .chat-body {
-    padding: 20px 0;
-    height:460px;
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f7f7f7;
 }
 
-.bot-message-icon {
-    width: 45px;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.message-text br + br {
-    line-height: 32px;
-}
-
-
-.message-text {
-    background: #f3f3ff;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 22px;
-    max-width: 80%;
-    margin-left: 60px; /* moves bubble right like screenshot */
-    position: relative;
-}
-
-
-.chat-footer {
-    background: white;
-    padding: 12px 0 0 0;
-}
-
-.message-input {
-    height: 42px;
-    border-radius: 6px;
-    border: 1px solid #cfcfcf;
-    padding: 8px;
-}
-
-
-.chat-controls {
+/* MESSAGE BUBBLES */
+.message {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.bot-message {
     flex-direction: row;
 }
 
+.user-message {
+    justify-content: flex-end;
+}
 
-.chat-controls button {
-    background: none;
+.message-text {
+    max-width: 70%;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.bot-message .message-text {
+    margin-left: 10px;
+    background: #e8e8e8;
+}
+
+.user-message .message-text {
+    background: #4b6bfb;
+    color: white;
+}
+
+/* BOT IMAGE */
+.bot-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+/* THINKING ANIMATION */
+.loading-bot {
+    animation: botPulse 1.4s infinite ease-in-out;
+}
+
+@keyframes botPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
+
+.thinking-indicator {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background: #555;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* FOOTER */
+.chat-footer {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #ddd;
+    background: #fafafa;
+}
+
+.message-input {
+    flex: 1;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+}
+
+.send-btn {
+    background: #4b6bfb;
+    color: white;
     border: none;
+    padding: 0 16px;
+    border-radius: 10px;
     cursor: pointer;
-    padding: 0;
 }
 
 
-.message-text svg {
-    width: 35px;
+.emoji-btn {
+    font-size: 22px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.emoji-picker {
+    display: none;
     position: absolute;
-    left: -50px;
-    top: 0;
+    bottom: 60px;
+    left: 10px;
+    width: 260px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 22px;
+    flex-wrap: wrap;
+    z-index: 20;
 }
+
+.emoji-picker span,
+.emoji-picker em {
+    cursor: pointer;
+    padding: 5px;
+}
+
+
