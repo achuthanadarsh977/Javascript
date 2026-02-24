@@ -1,19 +1,11 @@
-
 function powerof(x){
-
-    if (x < 0){
+    if (x < 1){
         return false
     }
-
-    while (x >= 1){
-        if (x / 2 === 0){
-            return true
-        }
-
-        else{
-            return false
-        }
-    }
+    return (x & (x - 1)) === 0
 }
 
-console.log(powerof(15))
+console.log(powerof(16))  // true
+console.log(powerof(15))  // false
+console.log(powerof(1))   // true (2^0)
+console.log(powerof(0))   // false
