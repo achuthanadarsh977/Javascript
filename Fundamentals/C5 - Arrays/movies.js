@@ -1,4 +1,3 @@
-
 const movies = [
     {'title':'a' , 'rating':'TV-MA','genre':'action'},
     {'title':'b' , 'rating':'13+','genre':'romance'},
@@ -11,4 +10,4 @@ console.log(movies.filter(m => m.genre === 'action' && m.rating === 'TV-MA'))
 
 console.log(movies.map(n => n.genre === 'action' && n.rating === 'TV-MA'))
 
-console.log(movies.sort((a,b) => a.rating - b.rating))
+console.log(movies.sort((a,b) => a.rating.localeCompare(b.rating)))

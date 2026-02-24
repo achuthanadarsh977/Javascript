@@ -1,5 +1,3 @@
-
-
 class Perimeter{
     constructor(x,y){
         this.x = x
@@ -13,8 +11,7 @@ class Perimeter{
 
 class Area extends Perimeter{
     constructor(x,y){
-        super(x)
-        super(y)
+        super(x, y)
     }
 
     sean(){
@@ -24,5 +21,5 @@ class Area extends Perimeter{
 
 const p = new Perimeter(12,13)
 const c = new Area(14,12)
-p.display
+p.display()
 c.sean()
